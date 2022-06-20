@@ -21,7 +21,7 @@ public class Manager {
        System.out.println("Nhập tên chủ hộ: ");
        String name = scanner.nextLine();
        System.out.println("Nhập số nhà: ");
-       int number = scanner.nextInt();;
+       int number = scanner.nextInt();
        System.out.println("Nhập số mã công tơ: ");
        int code = scanner.nextInt();
        return  new Client(name,number,code);
@@ -62,7 +62,7 @@ public class Manager {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        Manager manager = new Manager(new ArrayList<Client>(),new ArrayList<Bill>());
+        Manager manager = new Manager(new ArrayList<>(),new ArrayList<>());
 
         manager.addClient(scanner);
         manager.addBill(scanner);

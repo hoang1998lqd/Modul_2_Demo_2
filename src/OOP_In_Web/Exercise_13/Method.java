@@ -1,5 +1,6 @@
 package OOP_In_Web.Exercise_13;
 
+import OOP_In_Web.Exercise_13.Employee_Class.*;
 import org.jetbrains.annotations.NotNull;
 
 import java.time.LocalDate;
@@ -235,16 +236,6 @@ public class Method {
         return fresher;
     }
 
-    // Thêm bằng cho nhân viên.
-    public void addCertificate(Scanner scanner, String id){
-
-        for (employee employee: employees){
-            if (employee.getId().equals(id)){
-                creatCertificate(scanner, employee.getName());
-            }
-        }
-    }
-
     // Thêm thông tin cho nhân viên Intern.
     @NotNull
     private intern setIntern(Scanner scanner, String ID, String name, LocalDate date, String phone, String email) {
@@ -256,6 +247,20 @@ public class Method {
         String university_name = scanner.nextLine();
         return new intern(ID, name, date, phone, email, major, semester, university_name);
     }
+
+
+
+    //Thêm bằng cho nhân viên
+    public void updateCertificate(Scanner scanner){
+        System.out.println("Nhập ID nhân viên cần thêm bằng: ");
+        String id = scanner.nextLine();
+        for (employee employee : employees){
+            if (employee.getId().equals(id)){
+                employee.setCertificates(creatCertificate(scanner,employee.getName()));
+            }
+        }
+    }
+
 
 
     // Khởi tạo bằng cấp
@@ -338,10 +343,18 @@ public class Method {
         }
         return true;
     }
-    public ArrayList<employee> getEmployee(){
-        return (ArrayList<employee>) employees;
-    }
 
+
+    // Giới thiệu bản thân.
+    public void showInfo(Scanner scanner){
+        System.out.println("Nhập ID người cần biết:");
+        String id  = scanner.nextLine();
+        for (employee employee : employees){
+            if(employee.getId().equals(id)){
+                employee.showInfo();
+            }
+        }
+    }
 
 
 }

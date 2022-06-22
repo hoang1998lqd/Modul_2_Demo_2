@@ -1,6 +1,7 @@
-package OOP_In_Web.Exercise_13;
+package OOP_In_Web.Exercise_13.Employee_Class;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 public abstract class employee {
@@ -9,7 +10,7 @@ public abstract class employee {
     public LocalDate birthDay;
     public String phoneNumber;
     public String email;
-    public List<certificate>certificates;
+    public List<certificate>certificates = new ArrayList<>();
 
     public employee() {
     }
@@ -79,8 +80,9 @@ public abstract class employee {
         return certificates;
     }
 
-    public void setCertificates(List<certificate> certificates) {
-        this.certificates = certificates;
+
+    public void setCertificates(List<certificate> certificates1) {
+        certificates.addAll(certificates1);
     }
     public void addCertificates(List<certificate> certificate){
         this.certificates = certificate;

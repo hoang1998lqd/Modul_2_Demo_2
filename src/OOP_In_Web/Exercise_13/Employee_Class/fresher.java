@@ -1,9 +1,9 @@
-package OOP_In_Web.Exercise_13;
+package OOP_In_Web.Exercise_13.Employee_Class;
 
 import java.time.LocalDate;
 import java.util.List;
 
-public class fresher extends employee{
+public class fresher extends employee {
     private LocalDate graduation_date;  // Thời gian tốt nghiệp
     private String graduation_rank;     // Xếp loại học lực
     private String university_name;     // Tên trường tốt nghiệp
@@ -18,9 +18,19 @@ public class fresher extends employee{
 
     @Override
     public String showInfo() {
-
+        say();
         return null;
     }
+    private void say() {
+        System.out.println("Tôi tên là: " + this.getName());
+        System.out.println("Tôi đã tốt nghiệp vào ngày: " + this.graduation_date);
+        System.out.println("Tốt nghiệp loại: " + graduation_rank);
+        System.out.println("Tại trường: " + this.university_name);
+        System.out.print("Đây là thông tin liên hệ của tôi: " + "\n" +
+                            "Số điện thoại " + this.phoneNumber +
+                            "Địa chỉ email: " + this.email);
+    }
+
     public LocalDate getGraduation_date() {
         return graduation_date;
     }

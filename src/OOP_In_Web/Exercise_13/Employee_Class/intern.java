@@ -1,8 +1,8 @@
-package OOP_In_Web.Exercise_13;
+package OOP_In_Web.Exercise_13.Employee_Class;
 
 import java.time.LocalDate;
 
-public class intern extends employee{
+public class intern extends employee {
     private String major;  // chuyên ngành học
     private String semester;  // học kỳ đang học
     private String university_name;

@@ -17,6 +17,8 @@ public class Company {
             System.out.println("5. Hiển thị thông tin nhân viên theo kinh nghiệm.");
             System.out.println("6. Hiển thị bằng cấp.");
             System.out.println("7. Hiển thị tổng số nhân viên trong công ty.");
+            System.out.println("8. Cập nhật bằng cho nhân viên.");
+            System.out.println("9. Giới thiệu bản thân.");
             System.out.println("0. Thoát.");
             System.out.println("******************************************");
             choice = Integer.parseInt(scanner.nextLine());
@@ -41,6 +43,12 @@ public class Company {
                     break;
                 case 7:
                     method.totalEmployee();
+                    break;
+                case 8:
+                    method.updateCertificate(scanner);
+                    break;
+                case 9:
+                    method.showInfo(scanner);
                     break;
                 default:
                     System.out.println("Bạn chọn không chính xác !!!");

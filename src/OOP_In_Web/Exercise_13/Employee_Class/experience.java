@@ -1,9 +1,9 @@
-package OOP_In_Web.Exercise_13;
+package OOP_In_Web.Exercise_13.Employee_Class;
 
 import java.time.LocalDate;
 import java.util.List;
 
-public class experience extends employee{
+public class experience extends employee {
     private int expOfYear;   // Số năm kinh nghiệm.
     private String proSkill;  // Kỹ năng chuyên môn
 

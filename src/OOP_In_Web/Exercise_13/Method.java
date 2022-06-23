@@ -3,6 +3,7 @@ package OOP_In_Web.Exercise_13;
 import OOP_In_Web.Exercise_13.Employee_Class.*;
 import org.jetbrains.annotations.NotNull;
 
+import java.io.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +12,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Method {
-    private final List<employee>employees;
+    private List<employee>employees;
     public Method(){
         employees = new ArrayList<>();
     }
@@ -283,6 +284,7 @@ public class Method {
         for (employee employee : employees){
             if(employee.getId().equals(id)){
                 employees.remove(employee);
+                break;
             }
             else {
                 System.out.println("Không tìm thấy ID là " + id + " để xóa !!!");
@@ -315,7 +317,7 @@ public class Method {
     // Kiểm tra số điện thoại nhập vào
     public boolean checkPhone (String phone){
         for (employee employee : employees){
-            if (phone.length() != 10 ){
+            if (phone.length() != 10 && employee.getPhoneNumber().equals(phone) ){
                 return false;
             }
         }
@@ -356,5 +358,41 @@ public class Method {
         }
     }
 
+    // Lưu danh sách vào file riêng biệt
 
+     public void saveEmployee (File file){
+
+        try{
+            if (!file.exists()){
+                file.createNewFile();
+            }
+            ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(file));
+//            for (employee employee : employees){
+//                out.writeObject(employee);
+//            }
+            out.writeObject(employees);
+            out.close();
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+     }
+
+     // Đọc file đã lưu
+
+    public List<employee> readFile(File file){
+        try {
+            if (!file.exists()){
+                file.createNewFile();
+            }
+            ObjectInputStream in  = new ObjectInputStream(new FileInputStream(file));
+//            employee  staff = null;
+            employees = (List<employee>) in.readObject();
+            in.close();
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return employees;
+    }
 }

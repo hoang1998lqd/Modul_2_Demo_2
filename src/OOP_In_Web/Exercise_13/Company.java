@@ -1,5 +1,6 @@
 package OOP_In_Web.Exercise_13;
 
+import java.io.File;
 import java.util.Scanner;
 
 public class Company {
@@ -19,6 +20,8 @@ public class Company {
             System.out.println("7. Hiển thị tổng số nhân viên trong công ty.");
             System.out.println("8. Cập nhật bằng cho nhân viên.");
             System.out.println("9. Giới thiệu bản thân.");
+            System.out.println("10. Lưu file dưới dạng txt.");
+            System.out.println("11. Xuất dữ liệu đã lưu.");
             System.out.println("0. Thoát.");
             System.out.println("******************************************");
             choice = Integer.parseInt(scanner.nextLine());
@@ -49,6 +52,18 @@ public class Company {
                     break;
                 case 9:
                     method.showInfo(scanner);
+                    break;
+                case 10:
+                    System.out.println("Nhập File: ");
+                    String nameFile = scanner.nextLine();
+                    File file = new File(nameFile);
+                    method.saveEmployee(file);
+                    break;
+                case 11:
+                    System.out.println("Nhập File: ");
+                    String name = scanner.nextLine();
+                    File file1 = new File(name);
+                    method.readFile(file1);
                     break;
                 default:
                     System.out.println("Bạn chọn không chính xác !!!");

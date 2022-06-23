@@ -1,10 +1,11 @@
 package OOP_In_Web.Exercise_13.Employee_Class;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class employee {
+public abstract class employee implements Serializable {
     public String id;
     public String name;
     public LocalDate birthDay;

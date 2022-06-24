@@ -317,7 +317,7 @@ public class Method {
     // Kiểm tra số điện thoại nhập vào
     public boolean checkPhone (String phone){
         for (employee employee : employees){
-            if (phone.length() != 10 && employee.getPhoneNumber().equals(phone) ){
+            if (phone.length() != 10 || employee.getPhoneNumber().equals(phone) ){
                 return false;
             }
         }
@@ -358,7 +358,7 @@ public class Method {
         }
     }
 
-    // Lưu danh sách vào file riêng biệt
+    // Lưu danh sách vào file riêng biệt bằng Stream
 
      public void saveEmployee (File file){
 
@@ -378,7 +378,7 @@ public class Method {
         }
      }
 
-     // Đọc file đã lưu
+     // Đọc file đã lưu bằng Stream
 
     public List<employee> readFile(File file){
         try {
@@ -395,4 +395,6 @@ public class Method {
         }
         return employees;
     }
+
+
 }

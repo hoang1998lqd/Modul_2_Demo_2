@@ -292,7 +292,7 @@ public class Method {
         }
     }
 
-    // OOP_In_Web.Exercise_13.OOP_In_Web.Exercise_13.Check ID trùng nhau trong mã nhân viên
+    // OOP_In_Web.Exercise_13.OOP_In_Web.Exercise_13.OOP_In_Web.OOP_In_Web.Check ID trùng nhau trong mã nhân viên
     public boolean checkID (String ID){
         for (employee employee: employees){
             if (employee.getId().equals(ID)){
@@ -302,7 +302,7 @@ public class Method {
         return true;
     }
 
-    // OOP_In_Web.Exercise_13.OOP_In_Web.Exercise_13.Check ID trùng nhau trong bằng cấp.
+    // OOP_In_Web.Exercise_13.OOP_In_Web.Exercise_13.OOP_In_Web.OOP_In_Web.Check ID trùng nhau trong bằng cấp.
     public boolean checkIDInCertificate(int ID){
         for (employee employee : employees){
           for (certificate certificate: employee.getCertificates()){

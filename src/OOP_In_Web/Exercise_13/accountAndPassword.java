@@ -47,6 +47,12 @@ public class accountAndPassword {
         }
         return false;
     }
+
+
+    public boolean checkAdmin(String account1, String password1){
+        return account1.equals("admin") && password1.equals("admin");
+    }
+
     public static void main(String[] args) {
         accountAndPassword demo = new accountAndPassword();
         Scanner scanner = new Scanner(System.in);
@@ -68,21 +74,26 @@ public class accountAndPassword {
              account = scanner.nextLine();
             System.out.println("Mật khẩu: ");
              password = scanner.nextLine();
-            if ((!account.equals("admin") || !password.equals("admin")) || demo.checkAccount(list, account, password)){
+            if ( !demo.checkAccount(list, account, password) && !demo.checkAdmin(account,password)){
                 System.out.println("Tài khoản hoặc mật khẩu không chính xác !!!");
                 count ++;
             }
             if (demo.checkAccount(list, account, password)) {
                 System.out.println("Đây là dòng lệnh được thực thi dưới quyền người dùng");
-                count =1;
+                count = 1;
                 break;
-            } else if (account.equals("admin") && password.equals("admin")){
+            } else if (demo.checkAdmin(account,password)){
                 System.out.println("Đây là dòng lệnh được thực thi dưới quyền Admin !!!");
-                count =1;
+                count = 1;
+                break;
             }
-        }while (count != 3);
+        }while (count != 3 && !demo.checkAccount(list, account, password) || (account.equals("admin") || password.equals("admin")));
         if (count == 3){
             System.out.println("Bạn đã nhập sai 3 lần vui lòng thử lại sau !!!");
         }
     }
 }
+
+
+
+
